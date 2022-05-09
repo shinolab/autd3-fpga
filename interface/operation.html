@@ -112,7 +112,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/sssssssuzuki/autd3-fpga" title="Git repository" aria-label="Git repository">
+                        <a href="https://github.com/shinolab/autd3-fpga" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
                     </div>
@@ -179,14 +179,7 @@ Point STMを使用する場合は, 追加でSOUND_SPEED (<span class="katex"><sp
 なお, Gain STMの場合のSTM_CYCLEの上限は<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">2</span><span class="mord">3</span></span></span></span>であることに注意する.
 また, STM_FREQ_DIVは8の倍数であることが望ましく, そうでない場合, サンプリング間隔が不均一になる.
 さらに, 計算レイテンシの都合上, STM_FREQ_DIVは<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">2</span><span class="mord">2</span><span class="mord">4</span></span></span></span>以上である必要がある.</p>
-<h2 id="wdt"><a class="header" href="#wdt">WDT</a></h2>
-<p>AUTD3にはEtherCATが動作してないときに出力を止めるためのウォッチドッグタイマが実装されている.
-ウォッチドッグタイマをリセットせずに1秒経過すると, Duty比と位相データがすべて<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>, SILENT_STEPが<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>に設定される.</p>
-<blockquote>
-<p>Note: SILENT_STEPを<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>にするのは, 静かに出力を停止するためである.</p>
-</blockquote>
-<p>ウォッチドッグタイマをリセットするには, CTL_REGの第15ビットを反転すれば良い.</p>
-<footer id="open-on-gh">Found a bug? <a href="https://github.com/sssssssuzuki/autd3-fpga/edit/master/docs/src/interface/operation.md">Edit this file on GitHub.</a></footer>
+<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-fpga/edit/master/docs/src/interface/operation.md">Edit this file on GitHub.</a></footer>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
