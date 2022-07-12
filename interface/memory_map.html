@@ -154,7 +154,7 @@
 <li>Modulator/STM BRAMはそのままだと書き込みアドレスが足りないので, Controller BRAM内の特定のアドレスに書き込まれたオフセットを使用する.</li>
 </ul>
 <h2 id="controller"><a class="header" href="#controller">Controller</a></h2>
-<table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (9bit)</th><th>DATA (16 bit)</th><th>R/W</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (9bit)</th><th>DATA (16 bit)</th><th>R/W</th></tr></thead><tbody>
 <tr><td>0x0</td><td>0x000</td><td>CTL_REG</td><td>R/W</td></tr>
 <tr><td></td><td>0x001</td><td>7:0 = FPGA info</td><td>W</td></tr>
 <tr><td></td><td>0x010</td><td>-</td><td>-</td></tr>
@@ -182,6 +182,7 @@
 <tr><td></td><td>︙</td><td>︙</td><td>︙</td></tr>
 <tr><td></td><td>0x2F8</td><td>MODULATION_DELAY[248]</td><td>W</td></tr>
 </tbody></table>
+</div>
 <ul>
 <li>CTL_REG bit
 <ul>
@@ -194,24 +195,26 @@
 </ul>
 <h2 id="modulator"><a class="header" href="#modulator">Modulator</a></h2>
 <p>Modulator BRAMのaddressは{MOD_ADDR_OFFSET, CPU_ADDR[13:0]}の<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord">1</span><span class="mord">5</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathrm">b</span><span class="mord mathrm">i</span><span class="mord mathrm">t</span></span></span></span></span></span></p>
-<table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (15bit)</th><th>DATA (16bit)</th><th>R/W</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (15bit)</th><th>DATA (16bit)</th><th>R/W</th></tr></thead><tbody>
 <tr><td>0x1</td><td>0x0000</td><td>mod[1]/mod[0]</td><td>W</td></tr>
 <tr><td></td><td>︙</td><td>︙</td><td>︙</td></tr>
 <tr><td></td><td>0x7FFF</td><td>mod[65535]/mod[65534]</td><td>W</td></tr>
 </tbody></table>
+</div>
 <h2 id="normal"><a class="header" href="#normal">Normal</a></h2>
-<table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (9bit)</th><th>DATA (16bit)</th><th>R/W</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (9bit)</th><th>DATA (16bit)</th><th>R/W</th></tr></thead><tbody>
 <tr><td>0x2</td><td>0x000</td><td>12:0 = phase[0]</td><td>W</td></tr>
 <tr><td></td><td>0x001</td><td>12:0 = duty[0]</td><td>W</td></tr>
 <tr><td></td><td>︙</td><td>︙</td><td>︙</td></tr>
 <tr><td></td><td>0x1F0</td><td>12:0 = phase[248]</td><td>W</td></tr>
 <tr><td></td><td>0x1F1</td><td>12:0 = duty[248]</td><td>W</td></tr>
 </tbody></table>
+</div>
 <h2 id="stm"><a class="header" href="#stm">STM</a></h2>
 <p>STM BRAMはPoint STMとGain STMで共用である.</p>
 <p>STM BRAMのaddressは{STM_ADDR_OFFSET, CPU_ADDR[13:0]}の<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord">1</span><span class="mord">9</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathrm">b</span><span class="mord mathrm">i</span><span class="mord mathrm">t</span></span></span></span></span></span></p>
 <h3 id="point-stm-seq_mode--0"><a class="header" href="#point-stm-seq_mode--0">Point STM (SEQ_MODE == 0)</a></h3>
-<table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (19bit)</th><th>DATA (16bit)</th><th>R/W</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (19bit)</th><th>DATA (16bit)</th><th>R/W</th></tr></thead><tbody>
 <tr><td>0x3</td><td>0x00000</td><td>x[0][15:0]</td><td>W</td></tr>
 <tr><td></td><td>0x00001</td><td>y[0][13:0]/x[0][17:16]</td><td>W</td></tr>
 <tr><td></td><td>0x00002</td><td>z[0][11:0]/y[0][17:14]</td><td>W</td></tr>
@@ -224,8 +227,9 @@
 <tr><td></td><td>0x7FFFB</td><td>duty_shift[65535]/z[65535][17:12]</td><td>W</td></tr>
 <tr><td></td><td>0x7FFFC-0x7FFFF</td><td>unused</td><td>W</td></tr>
 </tbody></table>
+</div>
 <h3 id="gain-stm-seq_mode--1"><a class="header" href="#gain-stm-seq_mode--1">Gain STM (SEQ_MODE == 1)</a></h3>
-<table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (19bit)</th><th>DATA (16bit)</th><th>R/W</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>BRAM_SELECT</th><th>BRAM_ADDR (19bit)</th><th>DATA (16bit)</th><th>R/W</th></tr></thead><tbody>
 <tr><td>0x3</td><td>0x00000</td><td>12:0 = phase[0][0]</td><td>W</td></tr>
 <tr><td></td><td>0x00001</td><td>12:0 = duty[0][0]</td><td>W</td></tr>
 <tr><td></td><td>︙</td><td>︙</td><td>︙</td></tr>
@@ -238,7 +242,7 @@
 <tr><td></td><td>0x7FFFE</td><td>12:0 = phase[65535][248]</td><td>W</td></tr>
 <tr><td></td><td>0x7FFFF</td><td>12:0 = duty[65535][248]</td><td>W</td></tr>
 </tbody></table>
-<footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-fpga/edit/master/docs/src/interface/memory_map.md">Edit this file on GitHub.</a></footer>
+</div><footer id="open-on-gh">Found a bug? <a href="https://github.com/shinolab/autd3-fpga/edit/master/docs/src/interface/memory_map.md">Edit this page on GitHub.</a></footer>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
